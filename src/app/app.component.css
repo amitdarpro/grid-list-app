@@ -1,0 +1,17 @@
+.date {
+  font-size: 12px;
+  font-size: 0.8rem;
+  letter-spacing: 0.04rem;
+  color: #ff0000;
+}
+
+/* mobile only */
+@media only screen and (max-width: 576px) {
+  .toolbar-icons-div {
+    display: none;
+  }
+}
+
+.missing-image {
+ padding-top: 10px;
+}

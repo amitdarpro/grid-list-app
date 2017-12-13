@@ -1,0 +1,10 @@
+<div class="navbar-desktop app-bottom-border">
+  <div class="btn-group-vertical btn-group-lg">
+    <button *ngFor="let category of categories; let i=index;" class="btn btn-primary mt-1" (click)="onButtonClick(i)">{{ category.sourceName }}</button>
+  </div>
+</div>
+<div class="navbar-mobile app-bottom-border">
+  <select [(ngModel)]="mobileSelectionIndex" class="custom-select app-select" (change)="onSelectChange($event)">
+    <option *ngFor="let category of categories; let i=index;" [value]="i">{{ category.sourceName | titlecase }}</option>
+  </select>
+</div>
