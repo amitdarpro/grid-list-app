@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col app-bottom-border">
       <span class="date">{{ today | date:'fullDate' }}</span>
+      <h2>App Status: {{ loadingStatus | async }}</h2>
     </div>
   </div>
   <div class="row">

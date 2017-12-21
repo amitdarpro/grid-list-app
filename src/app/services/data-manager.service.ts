@@ -17,12 +17,18 @@ export class DataManagerService {
   
   initData() {
     this.http.get('./assets/data4.json')
-    .map((response: Response) => response.json()).subscribe(data => {
-      this.data = data;
-      this.buildExCategories();
-      this.doneInitSubject.next(true);
-    })
-  }
+    .map((response: Response) => response.json())
+    .subscribe({
+      next: (data: any) => {
+        this.data = data;
+        this.buildExCategories();
+      },
+      error: (error) => {
+        console.log(error.statusText);
+        this.doneInitSubject.next(false);
+      }
+    });
+  }  
   
   buildExCategories() {
     for (let i=0; i<this.data.length; i++) {
@@ -43,6 +49,7 @@ export class DataManagerService {
         this.exCategories[index].articles.push(article)
       }
     }
+    this.doneInitSubject.next(true);
   }
 
   getCategories(): Category[] {
